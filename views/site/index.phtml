@@ -1,0 +1,37 @@
+<?php require VIEWS_PATH . 'includes/header.phtml';?>
+<div class="container">
+    <div class="jumbotron">
+        <h1>Bem vindo ao projeto 2</h1>
+        <p>
+            Projeto criado na maratona de PHP OO no cursinho da code experts.
+        <p>
+        <hr>
+            <ul>Neste projeto iniciamos o uso de banco de dados com as seguintes funções:
+                <li>Singleton para recuperar a instância da classe de conexão com o DB;</li>
+                <li>Consulta SQL para recuperar todos os produtos;</li>
+                <li>Consulta SQL para recuperar um produto específico em função do ID;</li>
+                <li>Listagem mestre detalhe de produtos do catálogo.</li>                
+            </ul>
+            <hr>
+            <a class="btn btn-lg btn-primary" href="http://bit.ly/ce-learn" role="button">Saiba mais... &raquo;</a>
+        </p>
+    </div>
+    <div class="col-md-12">
+        <h2>Catálogo de produtos</h2>
+        <hr>
+    <?php foreach($this->products as $product):?>
+    <div class="col-md-4">
+        <img src="http://via.placeholder.com/350x150?text=<?=$product['name'];?>" alt="" class="img-responsive">
+        <h2><a href="<?=HOME;?>/product/<?=$product['id'];?>"><?=$product['name'];?></a></h2>  
+        <p>
+            <?=$product['description'];?>
+        </p>
+        <p>
+            <?=number_format($product['price'], 2, ',', '.');?>
+        </p>       
+    </div>
+    <?php endforeach;?>
+    </div>
+</div> 
+<?php require VIEWS_PATH . 'includes/footer.phtml';?>
+    
